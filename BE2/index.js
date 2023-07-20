@@ -6,9 +6,29 @@ const app=express();
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 
+
+var contactList= [
+        {
+            name: "Adeeb",
+            phone: "XXXXXX1234"
+
+        },
+        {
+           name: "Tony Start",
+           phone:"XXXXXX1234"
+        },
+        {
+            name: "Steve",
+            phone:"XXXXXX1234"
+        }
+ ]
+ 
 app.get('/',function(req, res){
     // console.log(__dirname);
-  return res.render('home', {title:"My Contact List"});
+  return res.render('home', {
+    title:"My Contact List",
+    contact_list: contactList
+});
 });
 app.get('/practise', function(req, res){
     return res.render('practise',{
