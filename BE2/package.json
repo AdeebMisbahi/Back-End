@@ -1,0 +1,14 @@
+{
+  "name": "be2",
+  "version": "1.0.0",
+  "description": "a basic contact list to learn express js as a framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AdeebMisbahi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
