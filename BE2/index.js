@@ -10,6 +10,11 @@ app.get('/',function(req, res){
     // console.log(__dirname);
   return res.render('home', {title:"My Contact List"});
 });
+app.get('/practise', function(req, res){
+    return res.render('practise',{
+        title: "Play With EJS"
+    })
+})
 
 app.listen(port, function(err){
     if (err){
