@@ -8,7 +8,7 @@ app.set('views',path.join(__dirname, 'views'));
 
 app.get('/',function(req, res){
     // console.log(__dirname);
-  return res.render('home');
+  return res.render('home', {title:"My Contact List"});
 });
 
 app.listen(port, function(err){
