@@ -6,21 +6,7 @@ const app=express();
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 app.use(express.urlencoded());
-
-// middleWare 1
-app.use(function(req, res, next){
-    req.myName="Misbahi";
-    // console.log(('middleWare 1 called'));
-    next();
-})
-// middleWare 2
-app.use(function(req, res, next){
-    console.log("My Name from MW2", req.myName)
-//    console.log('middleware 2 called');
-   next();
-})
-
-
+app.use(express.static('assets'))
 var contactList= [
         {
             name: "Adeeb",
@@ -38,8 +24,6 @@ var contactList= [
  ]
  
 app.get('/',function(req, res){
-    // console.log(__dirname);
-    console.log('from the get route Controller', req.myName)
   return res.render('home', {
     title:"My Contact List",
     contact_list: contactList
@@ -52,8 +36,6 @@ app.get('/practise', function(req, res){
 })
 
 app.post('/create-contact', function(req, res){
-    // console.log(req);
-
     contactList.push({
         name: req.body.name,
         phone: req.body.phone
