@@ -1,0 +1,23 @@
+what we did upto now here are steps;
+1. => index.js
+2. => npm init
+3. => npm install express
+4. => after install express(
+    we required express library [const express=require('express')]
+    we chose a port [const port=3000]
+    our express app would be fired using this command [const app= express()]
+    we told the app to listen this port [app.listen(port, function(){
+        if(err){
+            console.log('Error in running the server', err)
+            return
+        }
+        console.log('yup My express  server is running on port', port)
+    })]
+  )
+5. => npm install ejs  
+6. => after installing ejs(
+    app.set('view engine', 'ejs');
+    app.set('views',path.join(__dirname, 'views'));
+)
+7. => middleware
+8. => added static file(app.use(express.static('assets')))
