@@ -48,10 +48,15 @@ app.post('/create-contact', function(req, res){
     // return res.redirect('./practise')
 })
 
-
+// for deleting  a contact
 app.get('/delete-contact/', function(req, res){
-    console.log(req.query);
+    // get the query from the url
     let phone = req.query.phone;
+    let contactIndext=contactList.findIndex(contact=>contact.phone==phone);
+    if(contactIndext!=-1){
+        contactList.splice(contactIndext,1)
+    }
+    return res.redirect('back')
 })
 
 app.listen(port, function(err){
