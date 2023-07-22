@@ -15,11 +15,11 @@ var contactList= [
         },
         {
            name: "Tony Start",
-           phone:"XXXXXX1234"
+           phone:"XXXXXX4321"
         },
         {
             name: "Steve",
-            phone:"XXXXXX1234"
+            phone:"XXXXXX1432"
         }
  ]
  
@@ -35,6 +35,8 @@ app.get('/practise', function(req, res){
     })
 })
 
+
+
 app.post('/create-contact', function(req, res){
     contactList.push({
         name: req.body.name,
@@ -46,6 +48,11 @@ app.post('/create-contact', function(req, res){
     // return res.redirect('./practise')
 })
 
+
+app.get('/delete-contact/:phone', function(req, res){
+    console.log(req.params);
+    let phone = req.params.phone;
+})
 
 app.listen(port, function(err){
     if (err){
