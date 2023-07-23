@@ -2,6 +2,8 @@ const express=require('express');
 const path =require('path');
 const port=3000;
 
+// connection mangoose to here
+const db=require('./config/mongoose')
 const app=express();
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
