@@ -4,6 +4,7 @@ const port=3000;
 
 // connection mangoose to here
 const db=require('./config/mongoose')
+const Contact=require('./models/contact');
 const app=express();
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
@@ -24,13 +25,40 @@ var contactList= [
             phone:"XXXXXX1432"
         }
  ]
+
+ async function getContacts(){
+
+    const Items = await Contact.find({});
+    return Items;
+  
+  }
+
+app.get('/', function(req, res){
+
+getContacts().then(function(FoundItems){
+    res.render('home',{
+        title: 'Contact List',
+        contact_list: FoundItems
+    })
+})
+/*
+// Now call backfuntion is no longer in use for Module.find
+
+    Contact.find({}, function(err, contacts){
+        if(err){
+            console.log('Error in fetching contacts form db')
+            return;
+        }
+        return res.render('home', {
+            title: 'Contact List',
+            contact_list: contacts
+        })
+    })
+   */
+})
  
-app.get('/',function(req, res){
-  return res.render('home', {
-    title:"My Contact List",
-    contact_list: contactList
-});
-});
+
+
 app.get('/practise', function(req, res){
     return res.render('practise',{
         title: "Play With EJS"
@@ -40,14 +68,24 @@ app.get('/practise', function(req, res){
 
 
 app.post('/create-contact', function(req, res){
-    contactList.push({
-        name: req.body.name,
-        phone: req.body.phone
-    });
+   
+    // contactList.push({
+    //     name: req.body.name,
+    //     phone: req.body.phone
+    // });
+    const yourData={
+        name:req.body.name,
+        phone:req.body.phone
+     }
+ Contact.create(yourData)
+    .then(createdItem => {
+        console.log('Item created:', createdItem);
+        return res.redirect('back')
+      })
+      .catch(error => {
+        console.error('Error creating item:', error);
+      });
     
-    return res.redirect('/'); // or res.redirect('back')
-
-    // return res.redirect('./practise')
 })
 
 // for deleting  a contact
