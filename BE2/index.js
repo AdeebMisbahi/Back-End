@@ -90,15 +90,20 @@ app.post('/create-contact', function(req, res){
 
 // for deleting  a contact
 app.get('/delete-contact/', function(req, res){
-    // get the query from the url
-    let phone = req.query.phone;
-    let contactIndext=contactList.findIndex(contact=>contact.phone==phone);
-    if(contactIndext!=-1){
-        contactList.splice(contactIndext,1)
-    }
-    return res.redirect('back')
-})
+    // get the id from the query in the url
+    let id = req.query.id;
 
+// find the contact in the database using id and delete
+   Contact.findByIdAndDelete(id)
+   .then(e=>{
+    return res.redirect('back')
+   })
+   .catch(err=>{
+        console.log("Error While delting contact in the database", err);
+   })
+   
+    
+})
 app.listen(port, function(err){
     if (err){
         console.log('Error in running the server',err);
