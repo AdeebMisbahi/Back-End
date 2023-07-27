@@ -1,0 +1,23 @@
+[33mcommit a029ac49450c121bbcc282dda2693deb0ac34b6c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: AdeebMisbahi1 <130211733+AdeebMisbahi1@users.noreply.github.com>
+Date:   Thu Jul 27 10:36:52 2023 +0530
+
+    added ejs for home and users
+
+[33mcommit 558cca155f3a28015f82c484e2cd0762e1fe12cf[m
+Author: AdeebMisbahi1 <130211733+AdeebMisbahi1@users.noreply.github.com>
+Date:   Thu Jul 27 08:01:20 2023 +0530
+
+    added another route and controller
+
+[33mcommit 44ab3f7aae5d2cf81394290442b29cc92ea1fea2[m
+Author: AdeebMisbahi1 <130211733+AdeebMisbahi1@users.noreply.github.com>
+Date:   Wed Jul 26 21:57:17 2023 +0530
+
+    added a controller and a router for home
+
+[33mcommit 86a63f49f6e1cbb5cf0deb60b89110cf5def5e17[m
+Author: AdeebMisbahi1 <130211733+AdeebMisbahi1@users.noreply.github.com>
+Date:   Mon Jul 24 14:31:34 2023 +0530
+
+    First commit: create the directory structure and setup the express server
